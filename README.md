@@ -42,7 +42,7 @@ cnn-image-classifier/
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/<username>/cnn-image-classifier.git
+   git clone https://github.com/alizas29/cnn-image-classifier.git
    cd cnn-image-classifier
    ```
 
