@@ -5,14 +5,15 @@ import streamlit as st
 from PIL import Image
 
 # =====================================================================
-# KONFIGURASI — perlu disesuaikan dengan hasil training model
+# KONFIGURASI — model CNN CIFAR-10 hasil hyperparameter tuning
 # =====================================================================
 MODEL_PATH = "model/model.keras"
-IMG_SIZE = (224, 224)                                # ukuran input model
-CLASS_NAMES = ["kelas_1", "kelas_2", "kelas_3"]      # urutan HARUS sama dgn training
+IMG_SIZE = (32, 32)                                  # ukuran input model (CIFAR-10)
+CLASS_NAMES = ["airplane", "automobile", "bird", "cat", "deer",
+               "dog", "frog", "horse", "ship", "truck"]  # urutan HARUS sama dgn training
 NORMALIZATION = "rescale"     # "rescale" (dibagi 255) atau "mobilenet" (preprocess_input)
 LOW_CONFIDENCE = 0.60         # di bawah ini dianggap model kurang yakin
-MODEL_INFO = "CNN + Transfer Learning (MobileNetV2)"  # deskripsi singkat model
+MODEL_INFO = "CNN 3 blok konvolusi + Dropout (Keras Tuner)"  # deskripsi singkat model
 
 GROUP_NAME = "Kelompok 4"
 COURSE = "Artificial Intelligence — Kelas JWCA (LEC)"
