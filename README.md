@@ -21,9 +21,10 @@ Proyek ini dibuat untuk **Tugas Kelompok 2 (Week 8): Optimasi dan Implementasi d
 
 | Komponen | Teknologi |
 |---|---|
-| Model | TensorFlow / Keras (CNN + Transfer Learning MobileNetV2) |
-| Optimasi | Hyperparameter tuning, Dropout, Batch Normalization |
+| Model | TensorFlow / Keras (CNN 3 blok konvolusi) |
+| Optimasi | Hyperparameter tuning (Keras Tuner RandomSearch), Dropout, Batch Normalization |
 | Antarmuka web | Streamlit |
+| Dataset | CIFAR-10 (60.000 gambar 32×32 piksel, 10 kelas) |
 | Hosting | Streamlit Community Cloud |
 | Version control | GitHub |
 
@@ -34,15 +35,17 @@ cnn-image-classifier/
 ├── app.py              # Aplikasi Streamlit (UI + prediksi)
 ├── requirements.txt    # Daftar library Python
 ├── README.md           # Dokumentasi proyek
-└── model/
-    └── model.keras     # Model CNN hasil training
+├── model/
+│   └── model.keras     # Model CNN hasil training & tuning
+└── notebooks/
+    └── tuning.ipynb    # Notebook training, tuning, dan evaluasi model
 ```
 
 ## 🚀 Menjalankan Secara Lokal
 
 1. **Clone repository**
    ```bash
-   git clone https://github.com/alizas29/cnn-image-classifier.git
+   git clone https://github.com/<username>/cnn-image-classifier.git
    cd cnn-image-classifier
    ```
 
@@ -67,6 +70,18 @@ cnn-image-classifier/
    Aplikasi akan terbuka otomatis di browser pada `http://localhost:8501`.
 
 > Disarankan menggunakan **Python 3.11**.
+
+## 🗂️ Dataset dan Model
+
+Model dilatih menggunakan dataset **CIFAR-10** dengan 10 kelas:
+`airplane`, `automobile`, `bird`, `cat`, `deer`, `dog`, `frog`, `horse`, `ship`, `truck`.
+
+- Ukuran input: **32 × 32 piksel**, 3 channel (RGB)
+- Normalisasi: nilai piksel dibagi 255
+- Optimasi: hyperparameter tuning dengan **Keras Tuner (RandomSearch)** pada jumlah filter, Batch Normalization, jumlah neuron Dense, dropout, dan learning rate
+- Proses training dan tuning lengkap ada di `notebooks/tuning.ipynb`
+
+> Karena gambar CIFAR-10 berukuran kecil (32×32), gambar beresolusi tinggi yang diunggah akan diperkecil terlebih dahulu. Hasil terbaik didapat dari gambar dengan satu objek utama yang jelas.
 
 ## ⚙️ Konfigurasi Model
 
@@ -112,4 +127,4 @@ Upload gambar → Konversi RGB → Resize (IMG_SIZE) → Normalisasi
 
 ---
 
-*Artificial Intelligence — Kelas JWCA• BINUS University • 2026*
+*Artificial Intelligence — Kelas JWCA (LEC) • BINUS University • 2026*
