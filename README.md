@@ -22,7 +22,7 @@ Proyek ini dibuat untuk **Tugas Kelompok 2 (Week 8): Optimasi dan Implementasi d
 | Komponen | Teknologi |
 |---|---|
 | Model | TensorFlow / Keras (CNN 3 blok konvolusi) |
-| Optimasi | Hyperparameter tuning (Keras Tuner RandomSearch), Dropout, Batch Normalization |
+| Optimasi | Hyperparameter tuning (Keras Tuner RandomSearch), Dropout, Batch Normalization, eksperimen transfer learning MobileNetV2 |
 | Antarmuka web | Streamlit |
 | Dataset | CIFAR-10 (60.000 gambar 32×32 piksel, 10 kelas) |
 | Hosting | Streamlit Community Cloud |
@@ -79,7 +79,7 @@ Model dilatih menggunakan dataset **CIFAR-10** dengan 10 kelas:
 - Ukuran input: **32 × 32 piksel**, 3 channel (RGB)
 - Normalisasi: nilai piksel dibagi 255
 - Optimasi: hyperparameter tuning dengan **Keras Tuner (RandomSearch)** pada jumlah filter, Batch Normalization, jumlah neuron Dense, dropout, dan learning rate
-- Proses training dan tuning lengkap ada di `notebooks/tuning.ipynb`
+- Proses training, tuning, transfer learning dan evaluasi lengkap ada di `notebooks/tuning.ipynb`
 
 > Karena gambar CIFAR-10 berukuran kecil (32×32), gambar beresolusi tinggi yang diunggah akan diperkecil terlebih dahulu. Hasil terbaik didapat dari gambar dengan satu objek utama yang jelas.
 
